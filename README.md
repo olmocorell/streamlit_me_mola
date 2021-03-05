@@ -11,7 +11,7 @@ In this repository you will find:
 
 - Manage data: a file with functions we need to manage the data before displaying it with streamlit.
 
-## Remember!
+## Remember!
 Streamlit currently supports versions 3.6, 3.7 and 3.8 of Python.
 
 
