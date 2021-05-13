@@ -1,9 +1,9 @@
 import streamlit as st
+import codecs
 import src.manage_data as dat
 import plotly.express as px
 import pandas as pd
 import folium
-import codecs
 from streamlit_folium import folium_static
 import streamlit.components.v1 as components
 from PIL import Image
@@ -46,17 +46,28 @@ labels = {"index": "Frases"}
 )
 
 st.plotly_chart(fig)
+st.write("""
+### Formulario de texto
 
-
+""")
+texto = st.text_input('Indicamos lo que tiene que introducir', 'Texto por defecto')
+st.write("Ha introducido: ", texto)
 st.write("""
 ### Gestor de archivos
 
 """)
 
 uploaded_file = st.file_uploader("Sube un csv")
-if uploaded_file is not None: 
+if uploaded_file: 
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
+
+foto = st.file_uploader("Sube uba foto")
+if foto: 
+    imagen = Image.open(foto)
+    imagen.save('data/foto.png')
+    st.write("tu foto se ha subido correctamente")
+
 
 st.write("""
 ### Columnas
